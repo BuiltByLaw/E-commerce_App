@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+
+class CustomTextField extends StatefulWidget {
+  final String label;
+  final bool obscureText;
+  final TextEditingController? controller;
+
+  const CustomTextField(
+      {super.key,
+      required this.label,
+      this.obscureText = false,
+      this.controller});
+
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  bool isObscured = true;
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 55,
+      child: TextField(
+        controller: widget.controller,
+        style: TextStyle(
+          color: Color(0xff000000),
+        ),
+        obscureText: widget.obscureText && isObscured,
+        decoration: InputDecoration(
+          labelStyle: TextStyle(
+            color: Color(0xff000000),
+          ),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+          suffixIcon: widget.obscureText
+              ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isObscured = !isObscured;
+                    });
+                  },
+                  icon: Icon(
+                    isObscured
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
+                    color: Color(0xff000000),
+                  ),
+                )
+              : null,
+          labelText: widget.label,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+        ),
+      ),
+    );
+  }
+}
