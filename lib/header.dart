@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/cart.dart';
+import 'package:helloworld/header.dart';
 
 class header extends StatelessWidget {
   const header({super.key});
@@ -47,7 +49,7 @@ class header extends StatelessWidget {
                 child: Container(
                   height: 46,
                   decoration: BoxDecoration(
-                    color: Color(0xffE5E3E3),
+                    color: Color(0xffebe7e7),
                     border: Border.all(
                       color: Colors.black87,
                     ),
@@ -99,7 +101,10 @@ class header extends StatelessWidget {
               ),
               SizedBox(width: 0),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CartScreen()));
+                },
                 icon: Icon(
                   Icons.shopping_cart_outlined,
                   color: Colors.black,
