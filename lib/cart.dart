@@ -4,6 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'Product.dart';
 import 'header.dart';
 
+
+//a change to change the state
+
 class CartScreen extends StatefulWidget {
   final Product? product;
 
